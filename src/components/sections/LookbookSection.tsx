@@ -51,7 +51,7 @@ export default function LookbookSection() {
     <section
       ref={sectionRef}
       id="lookbook"
-      style={{ background: "#121414", overflow: "hidden" }}
+      style={{ background: "var(--bg)", overflow: "hidden" }}
     >
       {/* Header */}
       <div
@@ -68,7 +68,7 @@ export default function LookbookSection() {
         <div style={{ display: "flex", flexDirection: "column", gap: "0.7rem" }}>
           <motion.span
             className="font-body"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A96E" }}
+            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--accent)" }}
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -77,7 +77,7 @@ export default function LookbookSection() {
           </motion.span>
           <motion.h2
             className="font-headline font-light"
-            style={{ fontSize: "clamp(2.2rem, 3.8vw, 3.8rem)", color: "#E3E2E2", letterSpacing: "0.03em", lineHeight: 1.05 }}
+            style={{ fontSize: "clamp(2.2rem, 3.8vw, 3.8rem)", color: "var(--text-primary)", letterSpacing: "0.03em", lineHeight: 1.05 }}
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.08 }}
@@ -87,7 +87,7 @@ export default function LookbookSection() {
         </div>
         <motion.span
           className="hidden md:block font-body"
-          style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#9E9B97" }}
+          style={{ fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-secondary)" }}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.25 }}
@@ -116,7 +116,7 @@ export default function LookbookSection() {
             style={{
               width: photo.tall ? "26vw" : "20vw",
               height: photo.tall ? "68vh" : "55vh",
-              background: "#1A1918",
+              background: "var(--bg-card)",
               minWidth: photo.tall ? "220px" : "180px",
             }}
             initial={{ opacity: 0, y: 28 }}
@@ -147,10 +147,10 @@ export default function LookbookSection() {
                 gap: "0.28rem",
               }}
             >
-              <span className="font-body" style={{ fontSize: "0.5rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "#C9A96E" }}>
+              <span className="font-body" style={{ fontSize: "0.5rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--accent)" }}>
                 AW 25
               </span>
-              <span className="font-headline font-light" style={{ fontSize: "0.95rem", color: "#E3E2E2", letterSpacing: "0.05em" }}>
+              <span className="font-headline font-light" style={{ fontSize: "0.95rem", color: "var(--text-primary)", letterSpacing: "0.05em" }}>
                 {photo.label}
               </span>
             </div>

@@ -41,7 +41,7 @@ export default function FeaturedProductSection() {
   return (
     <section
       ref={sectionRef}
-      style={{ background: "#121414", position: "relative", overflow: "hidden", minHeight: "90vh" }}
+      style={{ background: "var(--bg)", position: "relative", overflow: "hidden", minHeight: "90vh" }}
     >
       {/* Full-bleed background image with scrub zoom */}
       <div ref={imageRef} style={{ position: "absolute", inset: 0, willChange: "transform" }}>
@@ -81,7 +81,7 @@ export default function FeaturedProductSection() {
         <div style={{ maxWidth: "480px", display: "flex", flexDirection: "column", gap: "2rem" }}>
           <motion.span
             className="font-body"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A96E" }}
+            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--accent)" }}
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -94,7 +94,7 @@ export default function FeaturedProductSection() {
               className="font-headline font-light"
               style={{
                 fontSize: "clamp(3.5rem, 6vw, 6.5rem)",
-                color: "#E3E2E2",
+                color: "var(--text-primary)",
                 lineHeight: 1.0,
                 letterSpacing: "0.03em",
               }}
@@ -112,7 +112,7 @@ export default function FeaturedProductSection() {
 
           <motion.p
             className="font-body"
-            style={{ fontSize: "0.82rem", lineHeight: 2, color: "#9E9B97", maxWidth: "320px" }}
+            style={{ fontSize: "0.82rem", lineHeight: 2, color: "var(--text-secondary)", maxWidth: "320px" }}
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.3 }}
@@ -132,10 +132,10 @@ export default function FeaturedProductSection() {
           >
             {SPECS.map((s) => (
               <div key={s.label} className="flex flex-col" style={{ gap: "0.3rem" }}>
-                <span className="font-body" style={{ fontSize: "0.52rem", letterSpacing: "0.24em", textTransform: "uppercase", color: "#9E9B97" }}>
+                <span className="font-body" style={{ fontSize: "0.52rem", letterSpacing: "0.24em", textTransform: "uppercase", color: "var(--text-secondary)" }}>
                   {s.label}
                 </span>
-                <span className="font-body" style={{ fontSize: "0.82rem", color: "#E3E2E2" }}>
+                <span className="font-body" style={{ fontSize: "0.82rem", color: "var(--text-primary)" }}>
                   {s.value}
                 </span>
               </div>
@@ -168,7 +168,7 @@ export default function FeaturedProductSection() {
             </button>
             <button
               className="font-body transition-colors duration-300"
-              style={{ fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#9E9B97", background: "none", border: "none" }}
+              style={{ fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-secondary)", background: "none", border: "none" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#E3E2E2")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#9E9B97")}
             >

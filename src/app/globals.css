@@ -14,6 +14,29 @@
   --font-body: var(--font-inter), Inter, system-ui, sans-serif;
 }
 
+/* ── THEME TOKENS ─────────────────────────────────────────── */
+:root {
+  --bg:             #121414;
+  --bg-card:        #1A1918;
+  --bg-alt:         #1C1C1E;
+  --text-primary:   #E3E2E2;
+  --text-secondary: #9E9B97;
+  --accent:         #C9A96E;
+  --border:         #2E2C29;
+  --nav-bg:         rgba(18,20,20,0.88);
+}
+
+[data-theme="light"] {
+  --bg:             #F7F5F2;
+  --bg-card:        #EDEBE6;
+  --bg-alt:         #EDE9E3;
+  --text-primary:   #1A1918;
+  --text-secondary: #6B6863;
+  --accent:         #9E7A3E;
+  --border:         #D8D4CE;
+  --nav-bg:         rgba(247,245,242,0.88);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -25,12 +48,13 @@ html {
 }
 
 body {
-  background-color: #121414;
-  color: #E3E2E2;
+  background-color: var(--bg);
+  color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .font-headline {
@@ -61,8 +85,8 @@ html.lenis, html.lenis body {
 
 /* Selection */
 ::selection {
-  background: #C9A96E;
-  color: #121414;
+  background: var(--accent);
+  color: var(--bg);
 }
 
 /* Scrollbar */
@@ -70,12 +94,12 @@ html.lenis, html.lenis body {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #121414;
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2E2C29;
+  background: var(--border);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C9A96E;
+  background: var(--accent);
 }

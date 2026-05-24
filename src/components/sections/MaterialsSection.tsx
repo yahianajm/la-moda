@@ -18,7 +18,7 @@ export default function MaterialsSection() {
     <section
       ref={ref}
       style={{
-        background: "#1C1C1E",
+        background: "var(--bg-alt)",
         paddingTop: "9rem",
         paddingBottom: "9rem",
         paddingLeft: "5vw",
@@ -48,7 +48,7 @@ export default function MaterialsSection() {
         <div className="flex flex-col md:sticky md:top-32" style={{ gap: "1.8rem" }}>
           <motion.span
             className="font-body"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A96E" }}
+            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--accent)" }}
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -61,7 +61,7 @@ export default function MaterialsSection() {
               className="font-headline font-light"
               style={{
                 fontSize: "clamp(2.6rem, 4.2vw, 4.6rem)",
-                color: "#E3E2E2",
+                color: "var(--text-primary)",
                 lineHeight: 1.04,
                 letterSpacing: "0.03em",
               }}
@@ -77,7 +77,7 @@ export default function MaterialsSection() {
 
           <motion.p
             className="font-body"
-            style={{ fontSize: "0.82rem", lineHeight: 2, color: "#9E9B97", maxWidth: "320px" }}
+            style={{ fontSize: "0.82rem", lineHeight: 2, color: "var(--text-secondary)", maxWidth: "320px" }}
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.28 }}
@@ -96,13 +96,13 @@ export default function MaterialsSection() {
         </div>
 
         {/* Material rows */}
-        <div style={{ borderTop: "1px solid #2E2C29" }}>
+        <div style={{ borderTop: "1px solid var(--border)" }}>
           {MATERIALS.map((m, i) => (
             <motion.div
               key={m.name}
               className="group cursor-pointer"
               style={{
-                borderBottom: "1px solid #2E2C29",
+                borderBottom: "1px solid var(--border)",
                 padding: "2rem 0",
                 display: "flex",
                 alignItems: "flex-start",
@@ -118,17 +118,17 @@ export default function MaterialsSection() {
               <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
                 <h3
                   className="font-headline font-light transition-colors duration-300 group-hover:text-[#C9A96E]"
-                  style={{ fontSize: "clamp(1.4rem, 2vw, 2rem)", color: "#E3E2E2", letterSpacing: "0.03em" }}
+                  style={{ fontSize: "clamp(1.4rem, 2vw, 2rem)", color: "var(--text-primary)", letterSpacing: "0.03em" }}
                 >
                   {m.name}
                 </h3>
-                <span className="font-body" style={{ fontSize: "0.75rem", color: "#9E9B97" }}>
+                <span className="font-body" style={{ fontSize: "0.75rem", color: "var(--text-secondary)" }}>
                   {m.desc}
                 </span>
               </div>
               <span
                 className="font-body"
-                style={{ fontSize: "0.56rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#9E9B97", paddingTop: "0.25rem", flexShrink: 0, marginLeft: "1.5rem", textAlign: "right" }}
+                style={{ fontSize: "0.56rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--text-secondary)", paddingTop: "0.25rem", flexShrink: 0, marginLeft: "1.5rem", textAlign: "right" }}
               >
                 {m.origin}
               </span>

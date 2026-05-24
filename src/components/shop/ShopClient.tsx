@@ -27,7 +27,7 @@ function Card({ item }: { item: Product }) {
       transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       className="group cursor-pointer flex flex-col"
     >
-      <div className="relative overflow-hidden" style={{ aspectRatio: "3 / 4", background: "#1A1918" }}>
+      <div className="relative overflow-hidden" style={{ aspectRatio: "3 / 4", background: "var(--bg-card)" }}>
         <Image
           src={item.src}
           alt={item.name}
@@ -62,13 +62,13 @@ function Card({ item }: { item: Product }) {
       <div className="flex items-start justify-between" style={{ paddingTop: "0.8rem" }}>
         <h3
           className="font-headline font-light"
-          style={{ fontSize: "1rem", color: "#E3E2E2", letterSpacing: "0.02em", lineHeight: 1.15, flex: 1, paddingRight: "0.5rem" }}
+          style={{ fontSize: "1rem", color: "var(--text-primary)", letterSpacing: "0.02em", lineHeight: 1.15, flex: 1, paddingRight: "0.5rem" }}
         >
           {item.name}
         </h3>
         <span
           className="font-body flex-shrink-0"
-          style={{ fontSize: "0.65rem", color: "#C9A96E", letterSpacing: "0.05em", paddingTop: "0.12rem" }}
+          style={{ fontSize: "0.65rem", color: "var(--accent)", letterSpacing: "0.05em", paddingTop: "0.12rem" }}
         >
           {item.price}
         </span>
@@ -92,7 +92,7 @@ function Sidebar({
       className="hidden md:flex flex-col flex-shrink-0"
       style={{
         width: "240px",
-        borderRight: "1px solid #2E2C29",
+        borderRight: "1px solid var(--border)",
         paddingTop: "3rem",
         paddingBottom: "3rem",
         paddingLeft: "2.5rem",
@@ -110,7 +110,7 @@ function Sidebar({
           fontSize: "0.55rem",
           letterSpacing: "0.22em",
           textTransform: "uppercase",
-          color: "#9E9B97",
+          color: "var(--text-secondary)",
           textDecoration: "none",
           marginBottom: "2.5rem",
         }}
@@ -120,7 +120,7 @@ function Sidebar({
 
       <h1
         className="font-headline font-light"
-        style={{ fontSize: "1.5rem", color: "#E3E2E2", letterSpacing: "0.12em", marginBottom: "2.5rem" }}
+        style={{ fontSize: "1.5rem", color: "var(--text-primary)", letterSpacing: "0.12em", marginBottom: "2.5rem" }}
       >
         Shop
       </h1>
@@ -131,7 +131,7 @@ function Sidebar({
           fontSize: "0.5rem",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#9E9B97",
+          color: "var(--text-secondary)",
           display: "block",
           marginBottom: "1rem",
         }}
@@ -158,7 +158,7 @@ function Sidebar({
                 borderRightWidth: 0,
                 borderBottomWidth: "1px",
                 borderBottomStyle: "solid",
-                borderBottomColor: "#2E2C29",
+                borderBottomColor: "var(--border)",
                 background: "none",
                 cursor: "pointer",
                 textAlign: "left",
@@ -169,7 +169,7 @@ function Sidebar({
                 style={{
                   fontSize: "0.85rem",
                   letterSpacing: "0.03em",
-                  color: isActive ? "#C9A96E" : "#9E9B97",
+                  color: isActive ? "var(--accent)" : "var(--text-secondary)",
                   fontWeight: isActive ? 500 : 400,
                   transition: "color 0.3s",
                 }}
@@ -181,17 +181,17 @@ function Sidebar({
         })}
       </nav>
 
-      <div style={{ marginTop: "2.5rem", paddingTop: "1.5rem", borderTop: "1px solid #2E2C29" }}>
+      <div style={{ marginTop: "2.5rem", paddingTop: "1.5rem", borderTop: "1px solid var(--border)" }}>
         <span
           className="font-body"
-          style={{ fontSize: "0.5rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#9E9B97", display: "block", marginBottom: "0.6rem" }}
+          style={{ fontSize: "0.5rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--text-secondary)", display: "block", marginBottom: "0.6rem" }}
         >
           Showing
         </span>
         <motion.span
           key={active}
           className="font-headline font-light"
-          style={{ fontSize: "1.2rem", color: "#C9A96E", letterSpacing: "0.04em", display: "block" }}
+          style={{ fontSize: "1.2rem", color: "var(--accent)", letterSpacing: "0.04em", display: "block" }}
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
@@ -200,7 +200,7 @@ function Sidebar({
         </motion.span>
         <span
           className="font-body"
-          style={{ fontSize: "0.6rem", color: "#9E9B97", letterSpacing: "0.06em", marginTop: "0.3rem", display: "block" }}
+          style={{ fontSize: "0.6rem", color: "var(--text-secondary)", letterSpacing: "0.06em", marginTop: "0.3rem", display: "block" }}
         >
           {total} pieces
         </span>
@@ -247,7 +247,7 @@ export default function ShopClient() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#121414", paddingBottom: "62px" }}>
+    <div style={{ display: "flex", minHeight: "100vh", background: "var(--bg)", paddingBottom: "62px" }}>
       <Sidebar active={active} setActive={handleCategoryChange} total={total} />
 
       <div style={{ flex: 1, display: "flex", flexDirection: "column", overflowY: "auto" }}>
@@ -255,7 +255,7 @@ export default function ShopClient() {
         {/* Top bar */}
         <div
           style={{
-            borderBottom: "1px solid #2E2C29",
+            borderBottom: "1px solid var(--border)",
             paddingLeft: "3rem",
             paddingRight: "5vw",
             paddingTop: "3rem",
@@ -271,13 +271,13 @@ export default function ShopClient() {
           <div>
             <span
               className="font-body"
-              style={{ fontSize: "0.56rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "#C9A96E", display: "block", marginBottom: "0.45rem" }}
+              style={{ fontSize: "0.56rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--accent)", display: "block", marginBottom: "0.45rem" }}
             >
               La Moda
             </span>
             <h2
               className="font-headline font-light"
-              style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", color: "#E3E2E2", letterSpacing: "0.03em", lineHeight: 1 }}
+              style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", color: "var(--text-primary)", letterSpacing: "0.03em", lineHeight: 1 }}
             >
               {CATEGORIES.find((c) => c.key === active)?.label === "All"
                 ? "All Pieces"
@@ -312,7 +312,7 @@ export default function ShopClient() {
             <motion.span
               key={`count-${active}`}
               className="font-body"
-              style={{ fontSize: "0.6rem", letterSpacing: "0.12em", color: "#9E9B97" }}
+              style={{ fontSize: "0.6rem", letterSpacing: "0.12em", color: "var(--text-secondary)" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.35 }}
@@ -328,7 +328,7 @@ export default function ShopClient() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "40vh" }}>
               <motion.span
                 className="font-body"
-                style={{ fontSize: "0.6rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "#9E9B97" }}
+                style={{ fontSize: "0.6rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--text-secondary)" }}
                 animate={{ opacity: [0.3, 1, 0.3] }}
                 transition={{ duration: 1.4, repeat: Infinity }}
               >
@@ -351,7 +351,7 @@ export default function ShopClient() {
 
               {products.length === 0 && (
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "40vh" }}>
-                  <p className="font-headline font-light" style={{ fontSize: "1.5rem", color: "#9E9B97", letterSpacing: "0.04em" }}>
+                  <p className="font-headline font-light" style={{ fontSize: "1.5rem", color: "var(--text-secondary)", letterSpacing: "0.04em" }}>
                     No pieces found.
                   </p>
                 </div>
@@ -401,7 +401,7 @@ export default function ShopClient() {
                 <div style={{ display: "flex", justifyContent: "center", marginTop: "4rem" }}>
                   <span
                     className="font-body"
-                    style={{ fontSize: "0.52rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "#2E2C29" }}
+                    style={{ fontSize: "0.52rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--border-color)" }}
                   >
                     All {total} pieces shown
                   </span>

@@ -25,7 +25,7 @@ export default function GallerySection() {
       ref={ref}
       id="shop"
       style={{
-        background: "#121414",
+        background: "var(--bg)",
         paddingTop: "9rem",
         paddingBottom: "9rem",
         paddingLeft: "5vw",
@@ -37,7 +37,7 @@ export default function GallerySection() {
         <div style={{ display: "flex", flexDirection: "column", gap: "0.7rem" }}>
           <motion.span
             className="font-body"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A96E" }}
+            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--accent)" }}
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -46,7 +46,7 @@ export default function GallerySection() {
           </motion.span>
           <motion.h2
             className="font-headline font-light"
-            style={{ fontSize: "clamp(2.2rem, 3.8vw, 3.8rem)", color: "#E3E2E2", letterSpacing: "0.03em", lineHeight: 1.05 }}
+            style={{ fontSize: "clamp(2.2rem, 3.8vw, 3.8rem)", color: "var(--text-primary)", letterSpacing: "0.03em", lineHeight: 1.05 }}
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
@@ -63,10 +63,10 @@ export default function GallerySection() {
           <Link
             href="/shop"
             className="hidden md:inline-flex font-body items-center gap-2 transition-opacity duration-300 hover:opacity-50"
-            style={{ fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#9E9B97" }}
+            style={{ fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-secondary)" }}
           >
             Browse All
-            <span style={{ color: "#C9A96E" }}>→</span>
+            <span style={{ color: "var(--accent)" }}>→</span>
           </Link>
         </motion.div>
       </div>
@@ -83,7 +83,7 @@ export default function GallerySection() {
           >
             <div
               className="relative overflow-hidden"
-              style={{ aspectRatio: "3 / 4", background: "#1A1918" }}
+              style={{ aspectRatio: "3 / 4", background: "var(--bg-card)" }}
             >
               <Image
                 src={item.src}
@@ -125,13 +125,13 @@ export default function GallerySection() {
             >
               <h3
                 className="font-headline font-light"
-                style={{ fontSize: "1.1rem", color: "#E3E2E2", letterSpacing: "0.02em", lineHeight: 1.15, flex: 1, paddingRight: "0.5rem" }}
+                style={{ fontSize: "1.1rem", color: "var(--text-primary)", letterSpacing: "0.02em", lineHeight: 1.15, flex: 1, paddingRight: "0.5rem" }}
               >
                 {item.name}
               </h3>
               <span
                 className="font-body flex-shrink-0"
-                style={{ fontSize: "0.68rem", color: "#C9A96E", letterSpacing: "0.05em", paddingTop: "0.15rem" }}
+                style={{ fontSize: "0.68rem", color: "var(--accent)", letterSpacing: "0.05em", paddingTop: "0.15rem" }}
               >
                 {item.price}
               </span>
@@ -155,21 +155,21 @@ export default function GallerySection() {
             fontSize: "0.62rem",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "#121414",
-            background: "#C9A96E",
+            color: "var(--bg)",
+            background: "var(--accent)",
             padding: "1rem 3rem",
             textDecoration: "none",
           }}
           onMouseEnter={(e) => {
             const el = e.currentTarget as HTMLAnchorElement;
             el.style.background = "transparent";
-            el.style.color = "#C9A96E";
-            el.style.outline = "1px solid #C9A96E";
+            el.style.color = "var(--accent)";
+            el.style.outline = "1px solid var(--accent)";
           }}
           onMouseLeave={(e) => {
             const el = e.currentTarget as HTMLAnchorElement;
-            el.style.background = "#C9A96E";
-            el.style.color = "#121414";
+            el.style.background = "var(--accent)";
+            el.style.color = "var(--bg)";
             el.style.outline = "none";
           }}
         >

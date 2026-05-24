@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import BottomNav from "@/components/BottomNav";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -35,10 +36,12 @@ export default function RootLayout({
       className={`${cormorant.variable} ${inter.variable} h-full`}
     >
       <body className="min-h-full bg-bg text-text-primary antialiased">
-        <LenisProvider>
-          {children}
-          <BottomNav />
-        </LenisProvider>
+        <ThemeProvider>
+          <LenisProvider>
+            {children}
+            <BottomNav />
+          </LenisProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -18,7 +18,7 @@ export default function BrandStorySection() {
       ref={ref}
       id="story"
       style={{
-        background: "#121414",
+        background: "var(--bg)",
         paddingTop: "10rem",
         paddingBottom: "10rem",
         paddingLeft: "5vw",
@@ -31,7 +31,7 @@ export default function BrandStorySection() {
         <div className="flex flex-col order-2 md:order-1" style={{ gap: "2rem" }}>
           <motion.span
             className="font-body"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A96E" }}
+            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--accent)" }}
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -44,7 +44,7 @@ export default function BrandStorySection() {
               className="font-headline font-light"
               style={{
                 fontSize: "clamp(2.6rem, 4.2vw, 4.4rem)",
-                color: "#E3E2E2",
+                color: "var(--text-primary)",
                 lineHeight: 1.05,
                 letterSpacing: "0.03em",
               }}
@@ -66,7 +66,7 @@ export default function BrandStorySection() {
             {WORDS.map((word, i) => (
               <motion.span
                 key={i}
-                style={{ color: "#9E9B97", display: "inline-block" }}
+                style={{ color: "var(--text-secondary)", display: "inline-block" }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.35 + i * 0.028 }}
@@ -79,7 +79,7 @@ export default function BrandStorySection() {
           <motion.a
             href="#collections"
             className="font-body inline-flex items-center gap-3 transition-opacity duration-300 hover:opacity-50"
-            style={{ fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C9A96E", width: "fit-content" }}
+            style={{ fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--accent)", width: "fit-content" }}
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -118,10 +118,10 @@ export default function BrandStorySection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            <span className="font-body" style={{ fontSize: "0.52rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "#C9A96E" }}>
+            <span className="font-body" style={{ fontSize: "0.52rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--accent)" }}>
               AW 2025
             </span>
-            <span className="font-headline font-light" style={{ fontSize: "1.1rem", color: "#E3E2E2", letterSpacing: "0.04em" }}>
+            <span className="font-headline font-light" style={{ fontSize: "1.1rem", color: "var(--text-primary)", letterSpacing: "0.04em" }}>
               The Quiet Form
             </span>
           </motion.div>

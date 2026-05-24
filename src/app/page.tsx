@@ -10,7 +10,7 @@ import FooterSection from "@/components/sections/FooterSection";
 
 export default function Home() {
   return (
-    <main style={{ background: "#121414", paddingBottom: "62px" }}>
+    <main style={{ background: "var(--bg)", paddingBottom: "62px" }}>
       <HeroSection />
       <BrandStorySection />
       <CollectionsSection />

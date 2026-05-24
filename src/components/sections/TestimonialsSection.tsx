@@ -37,7 +37,7 @@ function Quote({ item, index, isInView }: {
     <motion.div
       ref={ref}
       style={{
-        borderBottom: "1px solid #2E2C29",
+        borderBottom: "1px solid var(--border)",
         paddingTop: "3.5rem",
         paddingBottom: "3.5rem",
         display: "flex",
@@ -52,7 +52,7 @@ function Quote({ item, index, isInView }: {
         className="font-headline font-light"
         style={{
           fontSize: "clamp(1.3rem, 2.2vw, 1.9rem)",
-          color: "#E3E2E2",
+          color: "var(--text-primary)",
           lineHeight: 1.55,
           letterSpacing: "0.025em",
           fontStyle: "italic",
@@ -65,10 +65,10 @@ function Quote({ item, index, isInView }: {
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <span style={{ display: "block", height: "1px", width: "24px", background: "#C9A96E", flexShrink: 0 }} />
         <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-          <span className="font-body" style={{ fontSize: "0.8rem", color: "#E3E2E2", letterSpacing: "0.04em" }}>
+          <span className="font-body" style={{ fontSize: "0.8rem", color: "var(--text-primary)", letterSpacing: "0.04em" }}>
             {item.author}
           </span>
-          <span className="font-body" style={{ fontSize: "0.6rem", letterSpacing: "0.14em", color: "#9E9B97", textTransform: "uppercase" }}>
+          <span className="font-body" style={{ fontSize: "0.6rem", letterSpacing: "0.14em", color: "var(--text-secondary)", textTransform: "uppercase" }}>
             {item.title}
           </span>
         </div>
@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
     <section
       ref={ref}
       style={{
-        background: "#121414",
+        background: "var(--bg)",
         paddingTop: "9rem",
         paddingBottom: "9rem",
         paddingLeft: "5vw",
@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
         <div className="md:col-span-3 flex flex-col" style={{ gap: "1.2rem" }}>
           <motion.span
             className="font-body"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A96E" }}
+            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--accent)" }}
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -107,7 +107,7 @@ export default function TestimonialsSection() {
           <div className="overflow-hidden">
             <motion.h2
               className="font-headline font-light"
-              style={{ fontSize: "clamp(2rem, 3.2vw, 3.2rem)", color: "#E3E2E2", lineHeight: 1.08, letterSpacing: "0.03em" }}
+              style={{ fontSize: "clamp(2rem, 3.2vw, 3.2rem)", color: "var(--text-primary)", lineHeight: 1.08, letterSpacing: "0.03em" }}
               initial={{ y: "108%" }}
               animate={isInView ? { y: "0%" } : {}}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
@@ -120,7 +120,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Quotes */}
-        <div className="md:col-span-9" style={{ borderTop: "1px solid #2E2C29" }}>
+        <div className="md:col-span-9" style={{ borderTop: "1px solid var(--border)" }}>
           {QUOTES.map((q, i) => (
             <Quote key={q.author} item={q} index={i} isInView={isInView} />
           ))}

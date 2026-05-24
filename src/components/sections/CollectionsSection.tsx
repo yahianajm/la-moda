@@ -43,7 +43,7 @@ function Card({ item, index, isInView }: {
       {/* Image wrapper — NO border at rest, thin gold on hover */}
       <div
         className="relative overflow-hidden cursor-pointer"
-        style={{ aspectRatio: "3 / 4", background: "#1A1918" }}
+        style={{ aspectRatio: "3 / 4", background: "var(--bg-card)" }}
       >
         <Image
           src={item.image}
@@ -90,21 +90,21 @@ function Card({ item, index, isInView }: {
               fontSize: "0.58rem",
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#9E9B97",
+              color: "var(--text-secondary)",
             }}
           >
             {item.category}
           </span>
           <h3
             className="font-headline font-light"
-            style={{ fontSize: "1.35rem", color: "#E3E2E2", letterSpacing: "0.03em", lineHeight: 1.1 }}
+            style={{ fontSize: "1.35rem", color: "var(--text-primary)", letterSpacing: "0.03em", lineHeight: 1.1 }}
           >
             {item.name}
           </h3>
         </div>
         <span
           className="font-body"
-          style={{ fontSize: "0.72rem", color: "#C9A96E", letterSpacing: "0.06em", paddingTop: "0.15rem" }}
+          style={{ fontSize: "0.72rem", color: "var(--accent)", letterSpacing: "0.06em", paddingTop: "0.15rem" }}
         >
           {item.price}
         </span>
@@ -121,7 +121,7 @@ export default function CollectionsSection() {
     <section
       ref={ref}
       id="collections"
-      style={{ background: "#121414", paddingTop: "9rem", paddingBottom: "9rem", paddingLeft: "5vw", paddingRight: "5vw" }}
+      style={{ background: "var(--bg)", paddingTop: "9rem", paddingBottom: "9rem", paddingLeft: "5vw", paddingRight: "5vw" }}
     >
       {/* Header row */}
       <div
@@ -131,7 +131,7 @@ export default function CollectionsSection() {
         <div className="flex flex-col" style={{ gap: "0.8rem" }}>
           <motion.span
             className="font-body"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A96E" }}
+            style={{ fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--accent)" }}
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -140,7 +140,7 @@ export default function CollectionsSection() {
           </motion.span>
           <motion.h2
             className="font-headline font-light"
-            style={{ fontSize: "clamp(2.2rem, 3.8vw, 3.8rem)", color: "#E3E2E2", letterSpacing: "0.03em", lineHeight: 1.05 }}
+            style={{ fontSize: "clamp(2.2rem, 3.8vw, 3.8rem)", color: "var(--text-primary)", letterSpacing: "0.03em", lineHeight: 1.05 }}
             initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
@@ -152,13 +152,13 @@ export default function CollectionsSection() {
         <motion.a
           href="#"
           className="hidden md:flex items-center font-body transition-opacity duration-300 hover:opacity-40"
-          style={{ fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#9E9B97", gap: "0.6rem" }}
+          style={{ fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--text-secondary)", gap: "0.6rem" }}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           All Pieces
-          <span style={{ color: "#C9A96E" }}>→</span>
+          <span style={{ color: "var(--accent)" }}>→</span>
         </motion.a>
       </div>
 

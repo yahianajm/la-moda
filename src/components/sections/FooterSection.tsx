@@ -18,7 +18,7 @@ export default function FooterSection() {
   return (
     <footer
       ref={ref}
-      style={{ background: "#1C1C1E", borderTop: "1px solid #2E2C29" }}
+      style={{ background: "var(--bg-alt)", borderTop: "1px solid var(--border)" }}
     >
       {/* Main */}
       <div
@@ -42,13 +42,13 @@ export default function FooterSection() {
           <div>
             <h2
               className="font-headline font-light"
-              style={{ fontSize: "2.6rem", color: "#E3E2E2", letterSpacing: "0.12em", lineHeight: 1, marginBottom: "1rem" }}
+              style={{ fontSize: "2.6rem", color: "var(--text-primary)", letterSpacing: "0.12em", lineHeight: 1, marginBottom: "1rem" }}
             >
               La Moda
             </h2>
             <p
               className="font-body"
-              style={{ fontSize: "0.78rem", lineHeight: 2, color: "#9E9B97", maxWidth: "280px" }}
+              style={{ fontSize: "0.78rem", lineHeight: 2, color: "var(--text-secondary)", maxWidth: "280px" }}
             >
               Premium clothing and shoes crafted with intention.
               Designed for those who understand that less is always more.
@@ -59,7 +59,7 @@ export default function FooterSection() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <span
               className="font-body"
-              style={{ fontSize: "0.56rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "#C9A96E" }}
+              style={{ fontSize: "0.56rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--accent)" }}
             >
               Join the Circle
             </span>
@@ -67,7 +67,7 @@ export default function FooterSection() {
             {sent ? (
               <motion.p
                 className="font-body"
-                style={{ fontSize: "0.78rem", color: "#C9A96E" }}
+                style={{ fontSize: "0.78rem", color: "var(--accent)" }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
@@ -92,7 +92,7 @@ export default function FooterSection() {
                     background: "#242220",
                     border: "1px solid #2E2C29",
                     borderRight: "none",
-                    color: "#E3E2E2",
+                    color: "var(--text-primary)",
                     padding: "0 1rem",
                   }}
                   onFocus={(e)  => (e.currentTarget.style.borderColor = "#C9A96E")}
@@ -132,7 +132,7 @@ export default function FooterSection() {
           >
             <span
               className="font-body"
-              style={{ fontSize: "0.54rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "#C9A96E" }}
+              style={{ fontSize: "0.54rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--accent)" }}
             >
               {section}
             </span>
@@ -142,7 +142,7 @@ export default function FooterSection() {
                   <a
                     href="#"
                     className="font-body transition-colors duration-300"
-                    style={{ fontSize: "0.8rem", color: "#9E9B97", letterSpacing: "0.02em" }}
+                    style={{ fontSize: "0.8rem", color: "var(--text-secondary)", letterSpacing: "0.02em" }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "#E3E2E2")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "#9E9B97")}
                   >
@@ -164,7 +164,7 @@ export default function FooterSection() {
         >
           <span
             className="font-body"
-            style={{ fontSize: "0.54rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "#C9A96E" }}
+            style={{ fontSize: "0.54rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--accent)" }}
           >
             Follow
           </span>
@@ -174,7 +174,7 @@ export default function FooterSection() {
                 <a
                   href="#"
                   className="font-body transition-colors duration-300"
-                  style={{ fontSize: "0.8rem", color: "#9E9B97" }}
+                  style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#E3E2E2")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "#9E9B97")}
                 >
@@ -189,7 +189,7 @@ export default function FooterSection() {
       {/* Bottom bar */}
       <div
         style={{
-          borderTop: "1px solid #2E2C29",
+          borderTop: "1px solid var(--border)",
           paddingTop: "1.4rem",
           paddingBottom: "1.4rem",
           paddingLeft: "5vw",
@@ -201,7 +201,7 @@ export default function FooterSection() {
           gap: "0.8rem",
         }}
       >
-        <span className="font-body" style={{ fontSize: "0.62rem", letterSpacing: "0.08em", color: "#9E9B97" }}>
+        <span className="font-body" style={{ fontSize: "0.62rem", letterSpacing: "0.08em", color: "var(--text-secondary)" }}>
           © 2025 La Moda. All rights reserved.
         </span>
         <div style={{ display: "flex", gap: "1.8rem" }}>
@@ -210,7 +210,7 @@ export default function FooterSection() {
               key={item}
               href="#"
               className="font-body transition-colors duration-300"
-              style={{ fontSize: "0.62rem", letterSpacing: "0.1em", color: "#9E9B97" }}
+              style={{ fontSize: "0.62rem", letterSpacing: "0.1em", color: "var(--text-secondary)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#E3E2E2")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#9E9B97")}
             >

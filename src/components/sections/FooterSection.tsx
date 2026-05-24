@@ -17,8 +17,9 @@ export default function FooterSection() {
 
   return (
     <footer
+      id="contact"
       ref={ref}
-      style={{ background: "var(--bg-alt)", borderTop: "1px solid var(--border)" }}
+      style={{ scrollMarginTop: "80px", background: "var(--bg-alt)", borderTop: "1px solid var(--border)" }}
     >
       {/* Main */}
       <div

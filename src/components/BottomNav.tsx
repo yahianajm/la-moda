@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { useTheme } from "@/components/ThemeProvider";
 
 const LINKS = [
   {
@@ -85,11 +84,9 @@ function MoonIcon() {
 
 export default function BottomNav() {
   const pathname = usePathname();
-  const { theme, toggle } = useTheme();
-
   return (
     <motion.nav
-      className="fixed bottom-0 left-0 right-0 z-50"
+      className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
       style={{
         background: "var(--nav-bg)",
         backdropFilter: "blur(20px)",
@@ -112,41 +109,6 @@ export default function BottomNav() {
           paddingRight: "0.5rem",
         }}
       >
-        {/* Theme toggle */}
-        <button
-          onClick={toggle}
-          style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "4px",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            color: "var(--text-secondary)",
-            transition: "color 0.25s ease",
-            padding: 0,
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
-          aria-label="Toggle theme"
-        >
-          <motion.span
-            key={theme}
-            initial={{ rotate: -30, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            style={{ display: "flex" }}
-          >
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-          </motion.span>
-          <span className="font-body" style={{ fontSize: "0.45rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-            {theme === "dark" ? "Light" : "Dark"}
-          </span>
-        </button>
-
         {LINKS.map((link) => {
           const active = link.href === "/home"
             ? pathname === "/" || pathname === "/home"

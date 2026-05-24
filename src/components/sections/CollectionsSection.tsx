@@ -121,7 +121,7 @@ export default function CollectionsSection() {
     <section
       ref={ref}
       id="collections"
-      style={{ background: "var(--bg)", paddingTop: "9rem", paddingBottom: "9rem", paddingLeft: "5vw", paddingRight: "5vw" }}
+      style={{ scrollMarginTop: "80px", background: "var(--bg)", paddingTop: "9rem", paddingBottom: "9rem", paddingLeft: "5vw", paddingRight: "5vw" }}
     >
       {/* Header row */}
       <div

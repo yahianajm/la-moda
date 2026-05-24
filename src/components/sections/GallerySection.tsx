@@ -25,6 +25,7 @@ export default function GallerySection() {
       ref={ref}
       id="shop"
       style={{
+        scrollMarginTop: "80px",
         background: "var(--bg)",
         paddingTop: "9rem",
         paddingBottom: "9rem",

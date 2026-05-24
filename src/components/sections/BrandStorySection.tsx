@@ -18,6 +18,7 @@ export default function BrandStorySection() {
       ref={ref}
       id="story"
       style={{
+        scrollMarginTop: "80px",
         background: "var(--bg)",
         paddingTop: "10rem",
         paddingBottom: "10rem",

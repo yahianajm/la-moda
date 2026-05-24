@@ -13,12 +13,17 @@ const PHOTOS = [
   { src: "/images/687668578_1396381345869557_3855729272072998756_n.jpg",   label: "Look 06", tall: true  },
 ];
 
+const NAV_HEIGHT = 80;
+
 export default function LookbookSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef   = useRef<HTMLDivElement>(null);
   const isInView   = useInView(sectionRef, { once: true, margin: "-8%" });
 
   useEffect(() => {
+    // Desktop only — mobile uses native scroll
+    if (window.innerWidth < 768) return;
+
     let cleanup: (() => void) | undefined;
     (async () => {
       const { gsap } = await import("gsap");
@@ -26,20 +31,22 @@ export default function LookbookSection() {
       gsap.registerPlugin(ScrollTrigger);
       if (!trackRef.current || !sectionRef.current) return;
 
-      const track   = trackRef.current;
-      const tw      = window.innerWidth;
-      const dist    = track.scrollWidth - tw + tw * 0.10;
+      const track = trackRef.current;
+      const tw    = window.innerWidth;
+      const dist  = track.scrollWidth - tw + tw * 0.10;
 
       const tween = gsap.to(track, {
         x: -dist,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top top",
+          // offset by nav height so the section content isn't hidden behind it
+          start: `top ${NAV_HEIGHT}px`,
           end: `+=${dist * 1.1}`,
           pin: true,
+          pinSpacing: true,
           scrub: 1.2,
-          anticipatePin: 1,
+          anticipatePin: 0,
         },
       });
       cleanup = () => tween.scrollTrigger?.kill();
@@ -51,13 +58,18 @@ export default function LookbookSection() {
     <section
       ref={sectionRef}
       id="lookbook"
-      style={{ background: "var(--bg)", overflow: "hidden" }}
+      style={{
+        background: "var(--bg)",
+        overflow: "hidden",
+        // So anchor-scroll lands below the fixed nav
+        scrollMarginTop: `${NAV_HEIGHT}px`,
+      }}
     >
       {/* Header */}
       <div
         style={{
-          paddingTop: "7rem",
-          paddingBottom: "3.5rem",
+          paddingTop: "5rem",
+          paddingBottom: "3rem",
           paddingLeft: "5vw",
           paddingRight: "5vw",
           display: "flex",
@@ -96,16 +108,16 @@ export default function LookbookSection() {
         </motion.span>
       </div>
 
-      {/* Horizontal track */}
+      {/* ── DESKTOP: GSAP horizontal pin track ── */}
       <div
         ref={trackRef}
+        className="hidden md:flex"
         style={{
-          display: "flex",
           alignItems: "flex-end",
           gap: "1.2rem",
           paddingLeft: "5vw",
           paddingRight: "5vw",
-          paddingBottom: "5.5rem",
+          paddingBottom: "5rem",
           width: "max-content",
         }}
       >
@@ -123,38 +135,59 @@ export default function LookbookSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.05 + i * 0.07 }}
           >
-            <Image
-              src={photo.src}
-              alt={photo.label}
-              fill
-              quality={100}
+            <Image src={photo.src} alt={photo.label} fill quality={100}
               className="object-cover object-center transition-transform duration-[800ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-[1.04]"
               sizes="28vw"
             />
-            <div
-              className="absolute inset-0 pointer-events-none"
+            <div className="absolute inset-0 pointer-events-none"
               style={{ background: "linear-gradient(to top, rgba(18,20,20,0.65) 0%, transparent 55%)" }}
             />
-
-            {/* Caption */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: "1.4rem",
-                left: "1.4rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.28rem",
-              }}
-            >
-              <span className="font-body" style={{ fontSize: "0.5rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--accent)" }}>
-                AW 25
-              </span>
-              <span className="font-headline font-light" style={{ fontSize: "0.95rem", color: "var(--text-primary)", letterSpacing: "0.05em" }}>
-                {photo.label}
-              </span>
+            <div style={{ position: "absolute", bottom: "1.4rem", left: "1.4rem", display: "flex", flexDirection: "column", gap: "0.28rem" }}>
+              <span className="font-body" style={{ fontSize: "0.5rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--accent)" }}>AW 25</span>
+              <span className="font-headline font-light" style={{ fontSize: "0.95rem", color: "var(--text-primary)", letterSpacing: "0.05em" }}>{photo.label}</span>
             </div>
           </motion.div>
+        ))}
+      </div>
+
+      {/* ── MOBILE: native horizontal scroll ── */}
+      <div
+        className="flex md:hidden"
+        style={{
+          overflowX: "auto",
+          overflowY: "hidden",
+          WebkitOverflowScrolling: "touch" as never,
+          scrollSnapType: "x mandatory",
+          gap: "0.75rem",
+          paddingLeft: "5vw",
+          paddingRight: "5vw",
+          paddingBottom: "2.5rem",
+          scrollbarWidth: "none",
+        }}
+      >
+        {PHOTOS.map((photo, i) => (
+          <div
+            key={photo.label}
+            className="relative flex-shrink-0 overflow-hidden"
+            style={{
+              width: "72vw",
+              height: "58vh",
+              background: "var(--bg-card)",
+              scrollSnapAlign: "start",
+            }}
+          >
+            <Image src={photo.src} alt={photo.label} fill quality={90}
+              className="object-cover object-center"
+              sizes="72vw"
+            />
+            <div className="absolute inset-0 pointer-events-none"
+              style={{ background: "linear-gradient(to top, rgba(18,20,20,0.65) 0%, transparent 55%)" }}
+            />
+            <div style={{ position: "absolute", bottom: "1.2rem", left: "1.2rem", display: "flex", flexDirection: "column", gap: "0.28rem" }}>
+              <span className="font-body" style={{ fontSize: "0.5rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--accent)" }}>AW 25</span>
+              <span className="font-headline font-light" style={{ fontSize: "0.9rem", color: "var(--text-primary)", letterSpacing: "0.05em" }}>{photo.label}</span>
+            </div>
+          </div>
         ))}
       </div>
     </section>

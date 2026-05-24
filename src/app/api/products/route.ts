@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import imageList from "@/lib/image-list.json";
 
 const KNOWN: Record<string, { name: string; category: string; price: string }> = {
   "702780233_3395843740575747_1028976443546796364_n.jpg":  { name: "Black Crop Shirt",            category: "wearing", price: "1 200 MAD" },
@@ -45,16 +44,16 @@ const PRICES = [
   "1 650 MAD", "1 750 MAD", "1 800 MAD", "1 950 MAD", "2 100 MAD",
 ];
 
-const IMAGE_EXTS = new Set([".jpg", ".jpeg", ".png", ".webp"]);
-
-function getAllImages(): string[] {
-  const dir = path.join(process.cwd(), "public", "images");
-  return fs
-    .readdirSync(dir)
-    .filter((f) => IMAGE_EXTS.has(path.extname(f).toLowerCase()))
-    .sort()
-    .reverse();
-}
+const ALL_PRODUCTS = (imageList as string[]).map((file, i) => {
+  const known = KNOWN[file];
+  return {
+    id:       `img-${i}`,
+    src:      `/images/${file}`,
+    name:     known?.name     ?? NAMES[i % NAMES.length],
+    category: known?.category ?? "wearing",
+    price:    known?.price    ?? PRICES[i % PRICES.length],
+  };
+});
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -62,21 +61,8 @@ export async function GET(req: NextRequest) {
   const limit    = Math.min(48, Math.max(1, parseInt(searchParams.get("limit") ?? "24", 10)));
   const category = searchParams.get("category") ?? "all";
 
-  const files = getAllImages();
-
-  const products = files.map((file, i) => {
-    const known = KNOWN[file];
-    return {
-      id:       `img-${i}`,
-      src:      `/images/${file}`,
-      name:     known?.name     ?? NAMES[i % NAMES.length],
-      category: known?.category ?? "wearing",
-      price:    known?.price    ?? PRICES[i % PRICES.length],
-    };
-  });
-
   const filtered =
-    category === "all" ? products : products.filter((p) => p.category === category);
+    category === "all" ? ALL_PRODUCTS : ALL_PRODUCTS.filter((p) => p.category === category);
 
   const total   = filtered.length;
   const start   = (page - 1) * limit;

@@ -127,7 +127,7 @@ export default function HeroSection() {
                 className="block"
                 style={{
                   fontSize: "clamp(3.4rem, 7.5vw, 7.2rem)",
-                  color: "var(--text-primary)",
+                  color: "#E3E2E2",
                 }}
                 initial={{ y: "105%" }}
                 animate={{ y: "0%" }}
@@ -150,7 +150,7 @@ export default function HeroSection() {
             fontSize: "0.78rem",
             lineHeight: 1.95,
             letterSpacing: "0.04em",
-            color: "var(--text-secondary)",
+            color: "rgba(227,226,226,0.65)",
             marginTop: "1.6rem",
             maxWidth: "360px",
           }}
@@ -199,7 +199,7 @@ export default function HeroSection() {
               fontSize: "0.62rem",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "var(--text-primary)",
+              color: "#E3E2E2",
               borderTopWidth: 0,
               borderLeftWidth: 0,
               borderRightWidth: 0,
@@ -237,7 +237,7 @@ export default function HeroSection() {
         </div>
         <span
           className="font-body"
-          style={{ fontSize: "0.52rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--text-secondary)" }}
+          style={{ fontSize: "0.52rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(227,226,226,0.5)" }}
         >
           Scroll
         </span>

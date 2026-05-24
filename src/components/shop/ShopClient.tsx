@@ -34,7 +34,7 @@ function Card({ item }: { item: Product }) {
           fill
           quality={85}
           className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-[1.04]"
-          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 20vw"
         />
         <div
           className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -254,9 +254,9 @@ export default function ShopClient() {
 
         {/* Top bar */}
         <div
+          className="pl-4 md:pl-12"
           style={{
             borderBottom: "1px solid var(--border)",
-            paddingLeft: "3rem",
             paddingRight: "5vw",
             paddingTop: "3rem",
             paddingBottom: "1.5rem",
@@ -323,7 +323,7 @@ export default function ShopClient() {
         </div>
 
         {/* Grid */}
-        <div style={{ padding: "3rem 5vw 5rem 3rem", flex: 1 }}>
+        <div className="pl-4 md:pl-12" style={{ paddingRight: "5vw", paddingTop: "3rem", paddingBottom: "5rem", flex: 1 }}>
           {loading ? (
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "40vh" }}>
               <motion.span
